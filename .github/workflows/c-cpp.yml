@@ -59,9 +59,9 @@ jobs:
 
       - name: Projekt Flatpak
         run: |
-          flatpak-builder --force-clean builddir com.glossung.app.json
-          flatpak-builder --repo=repo --force-clean builddir com.glossung.app.json
-          flatpak-builder --install --user repo builddir com.glossung.app.json
+          flatpak-builder --force-clean builddir com.glossung.app
+          flatpak-builder --repo=repo --force-clean builddir com.glossung.app
+          flatpak-builder --install --user repo builddir com.glossung.app
 
       - name: Install and Run Flatpak
         run: |

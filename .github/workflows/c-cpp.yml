@@ -48,13 +48,17 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y flatpak
-          sudo flatpak install flathub org.gnome.Platform//41
+          sudo apt-get update -qy
+          sudo apt-get install -y flatpak-builder flatpak
+          sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          sudo flatpak install -y flathub org.gnome.Sdk//43
+          sudo flatpak update -y
+          sudo flatpak install -y flathub org.freedesktop.Platform.GL.default//23.08
+          sudo apt-get install -y
 
       - name: Bundle Flatpak
         run: |
-          flatpak build-bundle --runtime org.gnome.Platform//41 --arch x86_64 glosung.tar.xz /org.gnome.zbrown.Palette.json
+          flatpak build-bundle --runtime org.gnome.Platform//41 --arch x86_64 glosung.tar.xz /org.gnome.zbrown.glosung.json
 
       - name: Install and Run Flatpak
         run: |

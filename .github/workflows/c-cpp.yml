@@ -59,11 +59,11 @@ jobs:
 
       - name: Projekt Flatpak
         run: |
-          flatpak-builder builddir glosung.tar.xz
-          flatpak-builder --repo=repo builddir glosung.tar.xz
-          flatpak-builder --install --user repo builddir glosung.tar.xz
+          flatpak-builder --force-clean builddir glosung.zip
+          flatpak-builder --repo=repo --force-clean builddir glosung.zip
+          flatpak-builder --install --user repo builddir glosung.zip
 
       - name: Install and Run Flatpak
         run: |
-          flatpak install --user --bundle glosung.tar.xz
-          flatpak run --user --bundle glosung.tar.xz
+          flatpak install --user --bundle glosung.zip
+          flatpak run --user --bundle glosung.zip

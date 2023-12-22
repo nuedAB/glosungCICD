@@ -52,7 +52,7 @@ jobs:
 
       - name: Build and Bundle Flatpak
         run: |
-          flatpak-builder --force-clean --install --user --verbose --repo=flatpak-repo build-dir
+          flatpak-builder --force-clean --install --user --verbose --repo=flatpak-repo org.gnome.zbrown.Palette.json
 
       - name: Install and Run Flatpak
         run: |

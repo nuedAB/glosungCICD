@@ -50,11 +50,11 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y flatpak
-  
+
       - name: Bundle Flatpak
         run: |
-          flatpak build-bundle --runtime org.gnome.Platform//41 --arch x86_64 --output glosung.tar.xz /path/to/your/manifest.json
-  
+          flatpak build-bundle --runtime org.gnome.Platform//41 --arch x86_64 glosung.tar.xz /org.gnome.zbrown.Palette.json
+
       - name: Install and Run Flatpak
         run: |
           flatpak install --user --bundle glosung.tar.xz

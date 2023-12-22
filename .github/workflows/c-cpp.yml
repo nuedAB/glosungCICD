@@ -56,10 +56,12 @@ jobs:
           sudo flatpak install -y flathub org.freedesktop.Platform.GL.default//23.08
           sudo apt-get install -y
 
-      - name: Bundle Flatpak
+      - name: Projekt Flatpak
         run: |
-          meson setup org.gnome.zbrown.glosung.json
-          meson install -C org.gnome.zbrown.glosung.json
+          flatpak-builder --force-clean builddir org.gnome.zbrown.glosung.json
+          flatpak-builder --repo=repo --force-clean builddir org.gnome.zbrown.glosung.json
+          flatpak-builder --install --user repo builddir org.gnome.zbrown.glosung.json
+          flatpak run --user org.gnome.zbrown.glosung.json
 
       - name: Install and Run Flatpak
         run: |

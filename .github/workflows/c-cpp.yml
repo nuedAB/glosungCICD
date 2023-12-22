@@ -59,8 +59,8 @@ jobs:
 
       - name: Projekt Flatpak
         run: |
-          flatpak-builder --force-clean builddir glosung.tar.xz
-          flatpak-builder --repo=repo --force-clean builddir glosung.tar.xz
+          flatpak-builder builddir glosung.tar.xz
+          flatpak-builder --repo=repo builddir glosung.tar.xz
           flatpak-builder --install --user repo builddir glosung.tar.xz
 
       - name: Install and Run Flatpak

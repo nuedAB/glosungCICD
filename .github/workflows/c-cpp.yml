@@ -58,7 +58,7 @@ jobs:
 
       - name: Bundle Flatpak
         run: |
-          flatpak build-bundle --runtime org.gnome.Sdk//43 --arch x86_64 glosung.tar.xz /org.gnome.zbrown.glosung.json
+          flatpak build-bundle --arch x86_64 glosung.tar.xz /org.gnome.zbrown.glosung.json
 
       - name: Install and Run Flatpak
         run: |

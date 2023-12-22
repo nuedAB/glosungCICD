@@ -50,6 +50,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y flatpak
+          sudo flatpak install flathub org.gnome.Platform//41
 
       - name: Bundle Flatpak
         run: |

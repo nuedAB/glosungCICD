@@ -60,7 +60,7 @@ jobs:
       - name: Check out flatpak
         uses: actions/checkout@v4
         with:
-        submodules: true
+          submodules: true
     
       - name: Build appstream dependency # (We need at least 0.15.3 for the g_once fix)
         run: |

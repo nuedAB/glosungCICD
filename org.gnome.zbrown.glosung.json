@@ -1,6 +1,6 @@
 {
   "app-id": "org.example.TestCICD",
-  "runtime": "org.gnome.Platform",
+  "runtime": "org.gnome.Platform//43",
   "runtime-version": "3.38",
   "sdk": "org.gnome.Sdk",
   "command": "testcicd",

@@ -50,7 +50,6 @@ jobs:
         run: |
           sudo apt-get update -qy
           sudo apt-get install -y flatpak-builder flatpak
-          sudo apt-get install -y org.flatpak.qtdemo/x86_64/stable
           sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
           sudo flatpak install -y flatpak flatpak-builder org.gnome.Sdk//43
           sudo flatpak update -y

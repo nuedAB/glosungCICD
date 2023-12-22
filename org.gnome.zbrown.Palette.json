@@ -1,6 +1,6 @@
 {
     "app-id" : "org.gnome.zbrown.Palette",
-    "runtime" : "org.gnome.Platform",
+    "runtime" : "org.gnome.Platform//41",
     "runtime-version" : "master",
     "sdk" : "org.gnome.Sdk",
     "command" : "org.gnome.zbrown.Palette",

@@ -46,15 +46,16 @@ jobs:
       - name: Create tar file
         run: zip -r glosung.tar.xz . -x ".git/*" ".github/*" "TODO" "screenshot.png" ".gitignore" "glosung.svg" "herrnhut.svg" "README.md" "INSTALL" "org.flatpak.glosung.yaml" "org.gnome.zbrown.glosung.json" "publish_flatpak.sh" "yamltest.yml" "publish_flatpak.sh" "CHANGELOG.md"
 
-      - name: Install Flatpak
-        run: |
-          sudo apt-get install -y flatpak
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y flatpak
 
-      - name: Build and Bundle Flatpak
-        run: |
-          flatpak-builder --force-clean --install --user --verbose --repo=flatpak-repo org.gnome.zbrown.Palette.json
+    - name: Bundle Flatpak
+      run: |
+        flatpak build-bundle --runtime org.gnome.Platform//41 --arch x86_64 --output glosung.tar.xz /path/to/your/manifest.json
 
-      - name: Install and Run Flatpak
-        run: |
-          flatpak install --user --bundle glosung.tar.xz
-          flatpak run --user --bundle glosung.tar.xz
+    - name: Install and Run Flatpak
+      run: |
+        flatpak install --user --bundle glosung.tar.xz
+        flatpak run --user --bundle glosung.tar.xz

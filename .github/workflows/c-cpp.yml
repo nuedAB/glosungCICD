@@ -75,7 +75,8 @@ jobs:
       - name: Build flatpak
         run: ninja -C _build
         env:
-        ASAN_OPTIONS: detect_leaks=0 # Right now we're not fully clean, but this gets us use-after-free etc
+          ASAN_OPTIONS: detect_leaks=0 # Right now we're not fully clean, but this gets us use-after-free etc
+      
       - name: Run tests
         run: meson test -C _build
         env:

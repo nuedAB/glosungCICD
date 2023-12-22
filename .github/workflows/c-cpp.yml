@@ -59,9 +59,9 @@ jobs:
 
       - name: Projekt Flatpak
         run: |
-          flatpak-builder --force-clean builddir glosung.zip
-          flatpak-builder --repo=repo --force-clean builddir glosung.zip
-          flatpak-builder --install --user repo builddir glosung.zip
+          flatpak-builder --force-clean builddir org.gnome.zbrown.Palette.json
+          flatpak-builder --repo=repo --force-clean builddir org.gnome.zbrown.Palette.json
+          flatpak-builder --install --user repo builddir org.gnome.zbrown.Palette.json
 
       - name: Install and Run Flatpak
         run: |

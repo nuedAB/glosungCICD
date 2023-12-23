@@ -43,3 +43,5 @@ jobs:
 
       - name: Create tar file
         run: zip -r glosung.tar.xz . -x ".git/*" ".github/*" "TODO" "screenshot.png" ".gitignore" "glosung.svg" "herrnhut.svg" "README.md" "INSTALL" "org.flatpak.glosung.yaml" "org.gnome.zbrown.glosung.json" "publish_flatpak.sh" "yamltest.yml" "publish_flatpak.sh" "CHANGELOG.md"
+
+        

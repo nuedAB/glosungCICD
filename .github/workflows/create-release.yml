@@ -78,3 +78,4 @@ jobs:
           asset_path: ./glosung.tar.xz
           asset_name: glosung.tar.xz
           asset_content_type: application/tar.xz
+          

@@ -1,0 +1,14 @@
+name: Test Nightly Check
+
+on: [push]
+
+jobs:
+ test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for changes since last nightly
+        id: nightly-check
+        uses: lukecarr/nightly-check@v0.2.0
+
+      - name: Check result
+        run: echo "Changes: ${{ steps.nightly-check.outputs.changes }}"

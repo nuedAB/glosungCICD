@@ -2,13 +2,14 @@ name: Nightly Build
 
 on:
   schedule:
-    - cron: "0 4 * * *"
+    - cron: "0 0 * * *"
 
 jobs:
   check:
     runs-on: ubuntu-latest
     outputs:
       changes: ${{ steps.nightly-check.outputs.changes }}
+      
     steps:
       - id: nightly-check
         name: Check for changes since last nightly
@@ -44,11 +45,9 @@ jobs:
           pip install SCons python-gettext
           
       - name: Build
+        run: scons
+
+      - name: Create ZIP & TAR file
         run: |
-          scons
-
-      - name: Create ZIP file
-        run: zip -r glosung.zip . -x ".git/*" ".github/*" "TODO" "screenshot.png" ".gitignore" "glosung.svg" "herrnhut.svg" "README.md" "INSTALL" "org.flatpak.glosung.yaml" "org.gnome.zbrown.glosung.json" "publish_flatpak.sh" "yamltest.yml" "publish_flatpak.sh" "CHANGELOG.md"
-
-      - name: Create tar file
-        run: zip -r glosung.tar.xz . -x ".git/*" ".github/*" "TODO" "screenshot.png" ".gitignore" "glosung.svg" "herrnhut.svg" "README.md" "INSTALL" "org.flatpak.glosung.yaml" "org.gnome.zbrown.glosung.json" "publish_flatpak.sh" "yamltest.yml" "publish_flatpak.sh" "CHANGELOG.md"
+          zip -r glosung.zip . -x ".git/*" ".github/*" "TODO" "screenshot.png" ".gitignore" "glosung.svg" "herrnhut.svg" "README.md" "INSTALL" "org.flatpak.glosung.yaml" "org.gnome.zbrown.glosung.json" "publish_flatpak.sh" "yamltest.yml" "publish_flatpak.sh" "CHANGELOG.md"
+          zip -r glosung.tar.xz . -x ".git/*" ".github/*" "TODO" "screenshot.png" ".gitignore" "glosung.svg" "herrnhut.svg" "README.md" "INSTALL" "org.flatpak.glosung.yaml" "org.gnome.zbrown.glosung.json" "publish_flatpak.sh" "yamltest.yml" "publish_flatpak.sh" "CHANGELOG.md"

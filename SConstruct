@@ -29,7 +29,6 @@ Help ('''Options:
   PREFIX=/usr                 Where to install glosung
   DESTDIR=/                   Real installation path DESTDIR + PREFIX
                               (this option is only for packaging)''')
-
 env = Environment (
   LINK      = 'gcc',
   CC        = 'gcc',

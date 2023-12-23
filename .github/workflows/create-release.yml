@@ -15,12 +15,7 @@ jobs:
 
       - name: Create Release on Merge
         if: github.event.pull_request.merged == true
-        run: |
-          git config --local user.email "nued.a@yahoo.com"
-          git config --local user.name "nuedAB"
-          git tag -a v${{ github.event.pull_request.number }} -m "Version ${{ github.event.pull_request.number }}"
-          git push https://${{ secrets.TOKEN }}/${{ github.repository }}.git v${{ github.event.pull_request.number }}
-
+  
       - name: Create ZIP file
         run: zip -r glosung.zip . -x ".git/*" ".github/*" "TODO" "screenshot.png" ".gitignore" "glosung.svg" "herrnhut.svg" "README.md" "INSTALL" "org.flatpak.glosung.yaml" "org.gnome.zbrown.glosung.json" "publish_flatpak.sh" "yamltest.yml" "publish_flatpak.sh" "CHANGELOG.md"
 

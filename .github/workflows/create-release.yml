@@ -16,8 +16,8 @@ jobs:
       - name: Create Release on Merge
         if: github.event.pull_request.merged == true
         run: |
-          git config --local user.email "begatzio@stud.fra-uas.de"
-          git config --local user.name "Nu3d"
+          git config --local user.email "nued.a@yahoo.com"
+          git config --local user.name "nuedAB"
           git tag -a v${{ github.event.pull_request.number }} -m "Version ${{ github.event.pull_request.number }}"
           git push origin v${{ github.event.pull_request.number }}
 

@@ -1,14 +1,23 @@
 name: Nightly Build
 
 on:
- schedule:
-    - cron: "0 3 * * *"
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
- check:
+  check:
     runs-on: ubuntu-latest
     outputs:
       changes: ${{ steps.nightly-check.outputs.changes }}
+    steps:
+      - id: nightly-check
+        name: Check for changes since last nightly
+        uses: lukecarr/nightly-check@v0.2.0
+
+  nightly:
+    runs-on: ubuntu-latest
+    needs: check
+    if: ${{ needs.check.outputs.changes == 'false' }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -43,5 +52,4 @@ jobs:
 
       - name: Create tar file
         run: zip -r glosung.tar.xz . -x ".git/*" ".github/*" "TODO" "screenshot.png" ".gitignore" "glosung.svg" "herrnhut.svg" "README.md" "INSTALL" "org.flatpak.glosung.yaml" "org.gnome.zbrown.glosung.json" "publish_flatpak.sh" "yamltest.yml" "publish_flatpak.sh" "CHANGELOG.md"
-
         

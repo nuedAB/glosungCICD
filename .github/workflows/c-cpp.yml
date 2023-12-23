@@ -40,10 +40,14 @@ jobs:
   
       - name: Install Flatpak dependencies
         run: |
+          sudo apt-get update -qy
+          sudo apt-get install -y flatpak-builder flatpak
+          sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          sudo flatpak install -y flathub org.gnome.Sdk//43
+          sudo flatpak update -y
+          sudo flatpak install -y flathub org.freedesktop.Platform.GL.default//23.08
+          sudo apt-get install -y
           sudo add-apt-repository ppa:alexlarsson/flatpak -y
-          sudo apt update
-          sudo apt install flatpak -y
-          sudo apt install flatpak flatpak-builder flatpak-runtime -y
 
       - name: Build Flatpak
         run: |

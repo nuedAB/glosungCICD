@@ -11,4 +11,4 @@ jobs:
         uses: lukecarr/nightly-check@v0.2.0
 
       - name: Check result
-        run: echo "Changes ${{ steps.nightly-check.outputs.changes }}"
+        run: echo ${{ steps.nightly-check.outputs.changes }}

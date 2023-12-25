@@ -29,7 +29,7 @@ jobs:
         id: get_date
         run: echo "::set-output name=DATE::$(date +'%Y-%m-%d')"
 
-      - name: Get version
+      - name: Extract release version
         id: extract-version-number
         uses: michmich112/extract-version@main
         with:

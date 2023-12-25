@@ -28,40 +28,8 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install SCons python-gettext
           
       - name: Build
         run: |
           scons
-  
-      - name: Install Flatpak dependencies
-        run: |
-          sudo apt-get update -qy
-          sudo apt-get install -y flatpak-builder flatpak
-          sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-          sudo flatpak install -y flathub org.gnome.Sdk//43
-          sudo flatpak install -y flathub org.gnome.Platform/x86_64/3.38
-          sudo flatpak update -y
-          sudo flatpak install -y flathub org.freedesktop.Platform.GL.default//23.08
-          sudo apt-get install -y
-          sudo add-apt-repository ppa:alexlarsson/flatpak -y
-
-      - name: Build Flatpak
-        run: |
-          flatpak-builder --force-clean --repo=repo your-app org.gnome.zbrown.glosung.json
-  
-      - name: Publish Flatpak
-        uses: actions/upload-artifact@v2
-        with:
-          name: flatpak-artifact
-          path: repo
-  
-      - name: Publish Flatpak Repository
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./repo
+ 

@@ -30,11 +30,9 @@ jobs:
         run: echo "::set-output name=DATE::$(date +'%Y-%m-%d')"
 
       - name: Get version
-        # id must be specified to retrieve the output of the step
-        id: version-step
+        id: extract-version-number
         uses: michmich112/extract-version@main
         with:
-          # specify here the path to your version file (e.g. package.json, pom.xml...)
           version-file: SConstruct
           schema: major.minor.build
 
@@ -50,8 +48,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          tag_name: V${{ steps.version-step.outputs.version }}
-          release_name: V${{ steps.version-step.outputs.version }}
+          tag_name: V${{ steps.extract-version-number.outputs.version }}
+          release_name: V${{ steps.extract-version-number.outputs.version }}
           body: ${{ steps.extract-release-notes.outputs.release_notes }}
           draft: false
           prerelease: false

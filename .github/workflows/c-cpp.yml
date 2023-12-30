@@ -81,3 +81,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           name: flatpak-package
           path: path/to/your/flatpak-packag
+          

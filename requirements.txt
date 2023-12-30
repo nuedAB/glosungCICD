@@ -1,0 +1,12 @@
+# Flatpak-Abhängigkeiten
+org.freedesktop.Platform.GL.default
+org.freedesktop.Platform.VAAPI.Intel
+org.freedesktop.Platform.ffmpeg-full
+org.freedesktop.Platform.openh264
+org.freedesktop.Platform.ffmpeg
+org.freedesktop.Platform.ffmpeg-nvdec
+org.freedesktop.Platform.ffmpeg-vaapi
+org.freedesktop.Platform.ffmpeg-vaapi-x11
+org.freedesktop.Platform.ffmpeg-full-nvdec
+org.freedesktop.Platform.ffmpeg-full-vaapi
+org.freedesktop.Platform.ffmpeg-full-vaapi-x11

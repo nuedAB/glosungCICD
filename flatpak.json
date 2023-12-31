@@ -23,7 +23,7 @@
             "sources": [
           {
               "type": "git",
-              "url": "https://github.com/nuedAB/glosungCICD"
+              "url": "https://github.com/nuedAB/glosungCICD.git"
             
           },
           {

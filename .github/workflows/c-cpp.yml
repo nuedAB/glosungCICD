@@ -77,12 +77,10 @@ jobs:
 
       - name: Test 
         run: |
-          pwd
-          ls -l
+          find . -name flatpak.json
           mkdir build-dir
           cp ./flatpak.json ./build-dir/flatpak.json
-          cd build-dir
-          flatpak-builder --force-clean --repo=../repo glosung ./flatpak.json
+          flatpak-builder --force-clean --repo=https://github.com/nuedAB/glosungCICD.git --build-dir=build-dir glosung ./build-dir/flatpak.json
 
 
       - name: Upload Flatpak package to GitHub Releases

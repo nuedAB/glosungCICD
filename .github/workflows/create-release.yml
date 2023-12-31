@@ -1,10 +1,9 @@
 name: Release on Merge
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+    types:
+      - closed
 
 jobs:
   release:
@@ -38,17 +37,10 @@ jobs:
       - name: Create tar file
         run: zip -r glosung.tar.xz . -x ".git/*" ".github/*" "TODO" "screenshot.png" ".gitignore" "glosung.svg" "herrnhut.svg" "README.md" "INSTALL" "org.flatpak.glosung.yaml" "org.gnome.zbrown.glosung.json" "publish_flatpak.sh" "yamltest.yml" "publish_flatpak.sh" "CHANGELOG.md"
 
-#Maybe remove
-      - name: Get Date
-        id: get_date
-        run: echo "::set-output name=DATE::$(date +'%Y-%m-%d')"
-
       - name: Extract release version
-        # id must be specified to retrieve the output of the step
         id: extract-version-number
         uses: michmich112/extract-version@main
         with:
-          # specify here the path to your version file (e.g. package.json, pom.xml...)with:
           version-file: SConstruct
           schema: major.minor.build
 

@@ -17,7 +17,7 @@
 
 
 import os
-version = '3.0.4'
+version = '3.1.4'
 
 # Stores signatures in ".sconsign.dbm"
 # in the top-level SConstruct directory.

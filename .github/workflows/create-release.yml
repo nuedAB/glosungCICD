@@ -1,10 +1,9 @@
 name: Release on Merge
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+    types:
+      - closed
 
 jobs:
   release:
@@ -94,5 +93,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          name: flatpak-package
-          path: ./glosung.zip
+          asset_path: ./glosung.tar.xz
+          asset_name: org.glosung.flatpak
+          asset_content_type: application/flatpak

@@ -8,19 +8,32 @@
       "cflags": "-O2 -g",
       "cxxflags": "-O2 -g",
       "env": {
-        "PYTHONPATH": "/app/lib/python3.9/site-packages"
-      }
+        "V": "1"
+    },
+    "arch": {
+        "x86_64": {
+            "cflags": "-O3 -g"
+        }
+    }
     },
     "modules": [
       {
         "name": "glosungci-cd",
-        "buildsystem": "autotools",
-        "no-autogen": true,
-        "sources": [
+        "config-opts": [ "--disable-introspection" ],
+            "sources": [
           {
-            "type": "archive",
-            "url": "https://github.com/glosung/glosungCI-CD.git",
-            "branch": "main"
+              "type": "git",
+              "url": "https://github.com/nuedAB/glosungCICD"
+            
+          },
+          {
+              "type": "patch",
+              "path": "required-pygobject-fix.patch"
+          },
+          {
+              "type": "file",
+              "path": "pygobject-extra-file",
+              "dest-filename": "extra-file"
           }
         ],
         "build-commands": [
@@ -34,6 +47,6 @@
           "/share/gtk-doc",
           "/share/man"
         ]
-      }
+        }
     ]
-  }
+}

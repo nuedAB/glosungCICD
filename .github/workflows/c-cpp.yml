@@ -78,7 +78,7 @@ jobs:
       - name: Test 
         run: |
           find . -name flatpak.json
-          flatpak-builder build-dir flatpak.json
+          flatpak-builder --force-clean --repo=repo glosung ./flatpak.json
 
       - name: Upload Flatpak package to GitHub Releases
         uses: actions/upload-artifact@v2

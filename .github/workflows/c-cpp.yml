@@ -54,7 +54,7 @@ jobs:
       - name: Check if all necessary files are present
         run: |
           ls ./
-          if [ ! -f flatpak.json ]; then echo "Manifest file not found!"; exit 1; fi
+          if [ ! -f org.flatpak.json ]; then echo "Manifest file not found!"; exit 1; fi
 
   flatpak:
     name: "Flatpak"
@@ -77,7 +77,7 @@ jobs:
 
       - name: Test 
         run: |
-          flatpak-builder --force-clean --repo=https://github.com/nuedAB/glosungCICD.git --build-dir=build-dir glosung ./build-dir/flatpak.json
+          flatpak-builder --force-clean --repo=https://github.com/nuedAB/glosungCICD.git glosung ./build-dir/flatpak.json
 
 
       - name: Upload Flatpak package to GitHub Releases

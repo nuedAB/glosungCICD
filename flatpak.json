@@ -14,10 +14,11 @@
     "modules": [
       {
         "name": "glosungci-cd",
-        "buildsystem": "simple",
+        "buildsystem": "autotools",
+        "no-autogen": true,
         "sources": [
           {
-            "type": "git",
+            "type": "archive",
             "url": "https://github.com/glosung/glosungCI-CD.git",
             "branch": "main"
           }

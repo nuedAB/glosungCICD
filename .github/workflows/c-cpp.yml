@@ -77,7 +77,7 @@ jobs:
 
       - name: Test 
         run: |
-          find src
+          find README
           flatpak-builder --force-clean --repo=repo glosung flatpak.json
 
       - name: Upload Flatpak package to GitHub Releases

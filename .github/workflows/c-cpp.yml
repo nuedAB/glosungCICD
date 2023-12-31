@@ -77,9 +77,6 @@ jobs:
 
       - name: Test 
         run: |
-          find . -name flatpak.json
-          mkdir build-dir
-          cp ./flatpak.json ./build-dir/flatpak.json
           flatpak-builder --force-clean --repo=https://github.com/nuedAB/glosungCICD.git --build-dir=build-dir glosung ./build-dir/flatpak.json
 
 

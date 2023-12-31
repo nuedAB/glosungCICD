@@ -1,38 +1,32 @@
 name: C CI Build and Deploy
-
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-
       - name: Cache APT Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: scons debhelper intltool libgtk-4-dev libadwaita-1-dev libxml2-dev libcurl4-gnutls-dev libgconf2-dev gettext
           version: 1.0
-
       - name: Install jq and awk
         run: |
            sudo apt-get install -y jq
            sudo apt-get install -y gawk
-           
+             
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
-          
+          python-version: 3.9 
       - name: Install Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y scons debhelper intltool libgtk-4-dev libadwaita-1-dev libxml2-dev libcurl4-gnutls-dev libgconf2-dev gettext
           sudo apt-get install -y python3-pip
           pip install opencv-contrib-python
           pip install opencv-python
@@ -40,17 +34,14 @@ jobs:
 
       - name: Install SCons
         run: sudo apt-get install scons
-
       - name: Build
         run: |
           scons
-
       - name: Set up GCC
         uses: Dup4/actions-setup-gcc@v1
 
       - name: Install binutils
         run: sudo apt-get install binutils
-
       - name: Check if all necessary files are present
         run: |
           ls ./

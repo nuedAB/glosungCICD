@@ -24,7 +24,6 @@
           {
               "type": "git",
               "url": "https://github.com/nuedAB/glosungCICD.git"
-            
           },
           {
               "type": "patch",

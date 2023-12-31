@@ -1,0 +1,52 @@
+{
+    "id": "org.glosung.glosungci-cd",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "40",
+    "sdk": "org.gnome.Sdk",
+    "command": "glosungci-cd",
+    "build-options": {
+      "cflags": "-O2 -g",
+      "cxxflags": "-O2 -g",
+      "env": {
+        "V": "1"
+    },
+    "arch": {
+        "x86_64": {
+            "cflags": "-O3 -g"
+        }
+    }
+    },
+    "modules": [
+      {
+        "name": "glosungci-cd",
+        "config-opts": [ "--disable-introspection" ],
+            "sources": [
+          {
+              "type": "git",
+              "url": "https://github.com/nuedAB/glosungCICD.git"
+            
+          },
+          {
+              "type": "patch",
+              "path": "required-pygobject-fix.patch"
+          },
+          {
+              "type": "file",
+              "path": "pygobject-extra-file",
+              "dest-filename": "extra-file"
+          }
+        ],
+        "build-commands": [
+          "pip3 install -r requirements.txt",
+          "python3 setup.py install --root=/app"
+        ],
+        "cleanup": [
+          "/include",
+          "/lib/pkgconfig",
+          "/share/doc",
+          "/share/gtk-doc",
+          "/share/man"
+        ]
+        }
+    ]
+}

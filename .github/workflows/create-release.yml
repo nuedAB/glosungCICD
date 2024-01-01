@@ -98,7 +98,7 @@ jobs:
         name: "Deploy"
         with:
           repository: ${{ steps.create_release.outputs.upload_url }}
-          flat-manager-url: https://flatpak-api.elementary.io
+          flat-manager-url: ${{ steps.create_release.outputs.upload_url }}
           token: ${{ secrets.TOKEN }}
-          end-of-life: "The application has been renamed to..."
+          end-of-life: "glosung.flatpak"
           end-of-life-rebase: "org.zbrown.Palette"  

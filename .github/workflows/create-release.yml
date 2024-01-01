@@ -8,6 +8,7 @@ on:
 
 jobs:
   release:
+    needs: c-cpp.yml
     runs-on: ubuntu-latest
 
     steps:

@@ -8,12 +8,16 @@ on:
 
 jobs:
   release:
-    needs: c-cpp.yml
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Create Release on Merge
+        if: github.event.pull_request.merged == true
+        run: |
+          echo "This job runs only when a pull request is merged."
 
       - name: Set up Flatpak environment
         run: |
@@ -24,11 +28,10 @@ jobs:
 
       - name: Flatpak Builder
         uses: flatpak/flatpak-github-actions@v6.3
-
-      - name: Create Release on Merge
-        if: github.event.pull_request.merged == true
-        run: |
-          echo "This job runs only when a pull request is merged."
+        with: 
+          bundle: app.flatpak
+          manifest-path: org.flatpak.json
+          cache-key: flatpak-builder-${{ github.sha }}
   
       - name: Create ZIP file
         run: zip -r glosung.zip . -x ".git/*" ".github/*" "TODO" "screenshot.png" ".gitignore" "glosung.svg" "herrnhut.svg" "README.md" "INSTALL" "org.flatpak.json" "CHANGELOG.md"

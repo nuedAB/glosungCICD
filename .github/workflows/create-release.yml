@@ -1,9 +1,10 @@
 name: Release on Merge
 
 on:
+  push:
+    branches: [ main ]
   pull_request:
-    types:
-      - closed
+    branches: [ main ]
 
 jobs:
   release:

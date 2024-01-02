@@ -16,7 +16,8 @@ jobs:
         uses: lukecarr/nightly-check@v0.2.0
 
       - name: Debug Output
-        run: echo "Changes: ${{ steps.nightly-check.outputs.changes }}"
+        run: |
+          echo "Changes: ${{ steps.nightly-check.outputs.changes }}"
 
   nightly:
     runs-on: ubuntu-latest

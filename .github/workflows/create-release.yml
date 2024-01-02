@@ -29,7 +29,6 @@ jobs:
       - name: Flatpak Builder
         uses: flatpak/flatpak-github-actions@v6.3
         with: 
-          bundle: app.flatpak
           manifest-path: org.flatpak.json
           cache-key: flatpak-builder-${{ github.sha }}
   
@@ -94,11 +93,9 @@ jobs:
           asset_name: org.glosung.flatpak
           asset_content_type: application/flatpak
 
-      - uses: flatpak/flatpak-github-actions/flat-manager@v4
-        name: "Deploy"
+      - name: "Deploy Flatpak"
+        uses: flatpak/flatpak-github-actions/flat-manager@v4
         with:
-          repository: ${{ steps.create_release.outputs.upload_url }}
-          flat-manager-url: ${{ steps.create_release.outputs.upload_url }}
+          repository: https://github.com/nuedAB/glosungCICD.git
+          flat-manager-url: https://github.com/nuedAB/glosungCICD.git
           token: ${{ secrets.TOKEN }}
-          end-of-life: "glosung.flatpak"
-          end-of-life-rebase: "org.zbrown.Palette"  

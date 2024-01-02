@@ -49,8 +49,8 @@ jobs:
 
       - name: Install binutils
         run: sudo apt-get install binutils
-        
+
       - name: Check if all necessary files are present
         run: |
           ls ./
-          if [ ! -f org.flatpak.json ]; then echo "Manifest file not found!"; exit 1; fi
+          if [ ! -f AUTHORS ]; then echo "Manifest file not found!"; exit 1; fi

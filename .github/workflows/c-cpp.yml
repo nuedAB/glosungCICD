@@ -53,4 +53,4 @@ jobs:
       - name: Check if all necessary files are present
         run: |
           ls ./
-          if [ ! -f AUTHORS ]; then echo "Manifest file not found!"; exit 1; fi
+          if [ ! -f AUTHORS ]; then echo "Authos file not found!"; exit 1; fi

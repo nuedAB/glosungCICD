@@ -1,9 +1,10 @@
 name: Release on Merge
 
 on:
+  push:
+    branches: [ main ]
   pull_request:
-    types:
-      - closed
+    branches: [ main ]
 
 jobs:
   release:
@@ -48,7 +49,7 @@ jobs:
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v1
         with:
-          changelog_file: CHANGELOG.md 
+          changelog_file: /debian/changelog
 
       - name: Create release
         id: create_release

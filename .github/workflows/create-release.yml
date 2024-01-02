@@ -39,7 +39,7 @@ jobs:
         run: zip -r glosung.tar.xz . -x ".git/*" ".github/*" "TODO" "screenshot.png" ".gitignore" "glosung.svg" "herrnhut.svg" "README.md" "INSTALL" "org.flatpak.json" "CHANGELOG.md"
 
       - name: Create flatpak file
-        run: zip -r glosung.tar.xz app.flatpak
+        run: zip -r flatpak.glosung.tar.xz . -i app.flatpak
 
       - name: Extract release version
         id: extract-version-number
@@ -92,6 +92,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./glosung.tar.xz
+          asset_path: ./flatpak.glosung.tar.xz
           asset_name: org.glosung.flatpak
           asset_content_type: application/flatpak

@@ -3,5 +3,6 @@
 #include "util.h"
 
 int main(){
-    printf("test")
+    printf("test");
+    
 }

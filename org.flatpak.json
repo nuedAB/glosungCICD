@@ -1,9 +1,9 @@
 {
-    "id": "org.glosung.glosungci-cd",
+    "id": "org.glosung.glosung",
     "runtime": "org.gnome.Platform",
     "runtime-version": "40",
     "sdk": "org.gnome.Sdk",
-    "command": "glosungci-cd",
+    "command": "glosung",
     "build-options": {
       "cflags": "-O2 -g",
       "cxxflags": "-O2 -g",
@@ -18,7 +18,7 @@
     },
     "modules": [
       {
-        "name": "glosungci-cd",
+        "name": "glosung",
         "config-opts": [ "--disable-introspection" ],
             "sources": [
           {

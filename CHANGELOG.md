@@ -1,11 +1,7 @@
-## [4.0.2] - 2023-01-15
-- Adding a new file
-- File name is Helloworld.c
-- Thank you message after downloading
-
 ## [4.0.1] - 2022-12-19
 - support dark mode
 - fix jumping back one day every now and then
+- Welcome Page
 
 ## [4.0.0] - 2022-03-03
 - major upgrade as migrated to gtk4

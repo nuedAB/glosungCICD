@@ -1,8 +1,9 @@
-## [4.0.1] - 2022-12-19
+## [4.0.3] - 2024-01-19
+- Vorführung
 - support dark mode
 - fix jumping back one day every now and then
 - Welcome Page
-- Hallo
+
 
 ## [4.0.0] - 2022-03-03
 - major upgrade as migrated to gtk4

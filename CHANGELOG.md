@@ -2,6 +2,7 @@
 - support dark mode
 - fix jumping back one day every now and then
 - Welcome Page
+- Hallo
 
 ## [4.0.0] - 2022-03-03
 - major upgrade as migrated to gtk4
